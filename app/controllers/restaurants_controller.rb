@@ -4,6 +4,4 @@ class RestaurantsController < ApplicationController
     render json: @restaurants.to_json
   end
 
-  def show
-  end
 end
