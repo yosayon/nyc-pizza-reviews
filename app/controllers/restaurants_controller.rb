@@ -1,7 +1,6 @@
-class RestaurantsController < ApplicationController
+class RestaurantsController < ApiController
   def index
     @restaurants = Restaurant.all
-    render json: @restaurants.to_json
   end
 
 end
