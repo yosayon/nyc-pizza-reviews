@@ -1,15 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import 'semantic-ui-css/semantic.css'
-import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
-import reducer from './reducer';
+import App from './App'
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk'
+import { rootReducer } from './reducers/index';
 
 const store = createStore(
-  reducer,
+  rootReducer,
   compose(
     applyMiddleware(thunk),
     window.devToolsExtension ? window.devToolsExtension() : f => f
@@ -18,7 +16,7 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+     <App />
   </Provider>,
-  document.getElementById('root')
+    document.getElementById('root')
 );
