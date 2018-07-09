@@ -1,18 +1,29 @@
 import React, { Component } from 'react';
 import './App.css';
-import { getRestaurants } from './reducer/restaurants/actions';
-import CharacterList from './components/RestaurantList';
-
+import { fetchRestaurants } from './actions/restaurantActions';
+import RestaurantList from './components/RestaurantList';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 class App extends Component {
+  componentDidMount() {
+    this.props.fetchRestaurants()
+  }
   render() {
     return (
-      <div className="App">
-        <CharacterList />
-      </div>
+      <h1>HI</h1>
     );
   }
 }
 
+const mapStateToProps = state => {
+  return { restaurants: state.restaurants }
+}
 
-export default App;
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({
+    fetchRestaurants,
+  }, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
