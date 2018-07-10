@@ -1,20 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Restaurant } from './Restaurant'
 
 const RestaurantList = ({ restaurants }) =>
-  <div id='restaurant-list' className='col-md-6'>
-    <h1>Restaurants</h1>
+
+  <div>
+    <h1>Restaurants Reviewed</h1>
     <ul>
-      {restaurants.map(restaurant =>
-        <li key={restaurant.name}>
-          {restaurant.name}
-        </li>
+      {restaurants.all.map((r, i) =>
+        <Restaurant key={i} restaurant={r} />
       )}
     </ul>
+
   </div>;
 
-const mapStateToProps = ({ restaurants }) => ({
-  restaurants,
-});
+const mapStateToProps = ({ restaurants }) => ({ restaurants, })
 
-export default connect(mapStateToProps)(RestaurantList);
+export default connect(mapStateToProps, null)(RestaurantList)
