@@ -15,13 +15,10 @@ class App extends Component {
     return (
       <div>
         <NavBar />
+        <RestaurantList />
       </div>
     );
   }
-}
-
-const mapStateToProps = state => {
-  return { restaurants: state.restaurants }
 }
 
 const mapDispatchToProps = dispatch => {
@@ -30,4 +27,4 @@ const mapDispatchToProps = dispatch => {
   }, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);
