@@ -4,14 +4,18 @@ import { fetchRestaurants } from './actions/restaurantActions';
 import RestaurantList from './components/RestaurantList';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import NavBar from './components/NavBar'
 
 class App extends Component {
   componentDidMount() {
     this.props.fetchRestaurants()
   }
+
   render() {
     return (
-      <h1>HI</h1>
+      <div>
+        <NavBar />
+      </div>
     );
   }
 }
