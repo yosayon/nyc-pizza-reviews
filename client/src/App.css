@@ -1,28 +1,58 @@
-.App {
-  text-align: center;
+/* Pizza Background */
+#background-container {
+  display: flex;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  justify-content: center;
+  background-color: Gainsboro;
 }
 
-.App-logo {
+.pizza-background {
+  height: 650px;
+  width: 100%;
+  opacity: 0.8;
+}
+
+/* Pizza Logo */
+
+.pizza-logo {
+  height: 50px;
+  left: 0px;
+  top: 0px;
+  position: absolute;
   animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
 }
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+/* navbar  */
+
+ #navbar-container {
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   /* border: solid gray; */
+   height: 50px;
+   width: 80%;
+   margin-left: auto;
+   margin-right: auto;
+ }
+
+ .nav-link{
+   text-decoration: none;
+   font-family: "Courier New";
+   text-shadow: 1px 1px gray;
+ }
+
+ .nav-link:hover{
+   text-decoration: none;
+   font-family: "Courier New";
+   text-shadow: 2px 2px gray;
+   animation: App-logo-spin infinite 20s linear;
+ }

@@ -4,7 +4,9 @@ import { fetchRestaurants } from './actions/restaurantActions';
 import RestaurantList from './components/RestaurantList';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import NavBar from './components/NavBar'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import Homepage from './containers/Homepage'
+import { Navbar } from './containers/Navbar'
 
 class App extends Component {
   componentDidMount() {
@@ -13,10 +15,14 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <NavBar />
-        <RestaurantList />
-      </div>
+      <Router>
+        <div>
+         <Navbar />
+         <Route exact="/" component={Homepage}/>
+         <Route path="/pizza-reviews" component={RestaurantList}/>
+        </div>
+      </Router>
+
     );
   }
 }
