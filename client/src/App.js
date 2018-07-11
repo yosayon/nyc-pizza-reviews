@@ -7,6 +7,7 @@ import { bindActionCreators } from 'redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Homepage from './containers/Homepage'
 import { Navbar } from './containers/Navbar'
+import { About } from './containers/About'
 
 class App extends Component {
   componentDidMount() {
@@ -18,8 +19,9 @@ class App extends Component {
       <Router>
         <div>
          <Navbar />
-         <Route exact="/" component={Homepage}/>
+         <Route exact path="/" component={Homepage}/>
          <Route path="/pizza-reviews" component={RestaurantList}/>
+         <Route path="/about" component={About} />
         </div>
       </Router>
 
