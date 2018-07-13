@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import background from '../pizza-background.png'
 
 
-export default class Homepage extends Component {
-  render(){
+export const Homepage = () => {
   return(
     <div id='background-container'>
       <img alt='background' className='pizza-background' src={background}/>
@@ -12,5 +11,5 @@ export default class Homepage extends Component {
         <div className='one-bite-message'>Visit <a href='http://www.barstoolsports.com'>barstoolsports</a></div>
       </div>
     </div>
-  )}
+  )
 }
