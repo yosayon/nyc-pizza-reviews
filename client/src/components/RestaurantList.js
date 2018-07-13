@@ -1,19 +1,12 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { Restaurant } from './Restaurant'
 
-const RestaurantList = ({ restaurants }) =>
-
+export const RestaurantList = ({ restaurants }) => {
+  const displayRestaurant = restaurants.map((restaurant, index) => <Restaurant restaurant={restaurant} key={index}/>)
+  return (
   <div>
-    <h1>Restaurants Reviewed</h1>
-    <ul>
-      {restaurants.all.map((r, i) =>
-        <Restaurant key={i} restaurant={r} />
-      )}
-    </ul>
-
-  </div>;
-
-const mapStateToProps = ({ restaurants }) => ({ restaurants, })
-
-export default connect(mapStateToProps, null)(RestaurantList)
+    <h1>Reviews</h1>
+    {displayRestaurant}
+  </div>
+  )
+}
