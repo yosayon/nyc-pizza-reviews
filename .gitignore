@@ -29,3 +29,4 @@
 # Place files for /public in /client/public
 /public
 /api_keys
+/.DS_Store

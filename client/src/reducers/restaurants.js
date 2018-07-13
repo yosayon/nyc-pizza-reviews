@@ -5,6 +5,8 @@ export default function restaurantReducer(state = {all: [], loading: false, sort
       return {...state, loading: true }
     case 'ADD_RESTAURANTS':
       return {...state, all: action.restaurants, loading: false }
+    case 'UPDATE_SORT_OPTION':
+      return {...state, loading: false, sort: action.sort}
     default:
       return state;
   }
