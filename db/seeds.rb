@@ -1,8 +1,6 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+require 'csv'
+
+restaurants = CSV.read('./db/data/7.13.18.csv')
+restaurants_array = []
+restaurants.each{|row|restaurants_array << {:name => row[0], :rating => row[1], :address => row[2], :city => row[3], :state => row[4], :zipcode => row[5], :phone_number => row[6], :restaurant_url => row[7], :video_review_url => row[8], :description => row[9]}}
+restaurants_array.each{|hash|Restaurant.create(hash)}
