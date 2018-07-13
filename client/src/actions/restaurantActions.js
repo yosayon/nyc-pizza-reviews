@@ -6,7 +6,7 @@ export function fetchRestaurants() {
     return fetch('/api/restaurants')
       .then(res => res.json())
       .then(res => {
-        dispatch({ type: 'FETCH_RESTAURANTS', restaurants: res.restaurants})
+        dispatch({ type: 'ADD_RESTAURANTS', restaurants: res.restaurants})
       })
     }
 }
