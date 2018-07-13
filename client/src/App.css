@@ -1,3 +1,7 @@
+body {
+  font-family: "Courier New";
+}
+
 /* Pizza Background */
 #background-container {
   display: flex;
@@ -7,7 +11,6 @@
   margin-right: auto;
   width: 80%;
   justify-content: center;
-  font-family: "Courier New";
 }
 
 .pizza-background {
@@ -38,7 +41,6 @@
   margin-top: 80px;
   font-size: 40px;
   text-align: center;
-  font-family: "Courier New";
 }
 
 /* navbar  */
@@ -55,13 +57,11 @@
 
  .nav-link{
    text-decoration: none;
-   font-family: "Courier New";
    text-shadow: 1px 1px gray;
  }
 
  .nav-link:hover{
    text-decoration: none;
-   font-family: "Courier New";
    text-shadow: 2px 2px gray;
    animation: App-logo-spin infinite 20s linear;
  }
@@ -84,7 +84,30 @@
  }
 
 /* about page*/
- #about-container {
+
+ .about-container {
+   background-image: url('pizza-about-picture.jpeg');
+   display: flex;
+   flex-flow: column;
+   margin-top: 5%;
+   margin-bottom: 10%;
+   margin-left: 10%;
+   width: 80%;
+   height: 500px;
+   opacity: 0.5;
+ }
+
+.about {
+  font-weight: bold;
+  font-size: 19px;
+  margin-top: 5%;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+ /* RestaurantPage css */
+
+ .restaurant-page-container {
    display: flex;
    flex-flow: column;
    margin-top: 5%;
@@ -93,6 +116,18 @@
    margin-right: auto;
    width: 80%;
    justify-content: center;
-   font-family: "Courier New";
-   background-color: gray;
  }
+
+ /* Filter on RestaurantPage */
+
+.filter-container {
+  display: flex;
+  flex-flow: column;
+}
+
+.select-box {
+  height: 20px;
+  width: 150px;
+}
+
+/* Filter on RestaurantPage */
