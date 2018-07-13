@@ -2,6 +2,7 @@ json.restaurants @restaurants do |restaurant|
   json.name restaurant.name
   json.rating restaurant.rating
   json.address restaurant.address
+  json.city restaurant.city
   json.state restaurant.state
   json.zipcode restaurant.zipcode
   json.phone_number restaurant.phone_number
