@@ -1,5 +1,3 @@
-import fetch from 'isomorphic-fetch';
-
 export function fetchRestaurants() {
   return function(dispatch){
     dispatch({ type: 'LOAD_RESTAURANTS'})
