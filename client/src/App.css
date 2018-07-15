@@ -184,10 +184,29 @@ tr, th, td {
     border: 1px solid white;
 }
 
+/* RestaurantList table header sort buttons */
+
+.sort-button-container{
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+}
+
+.sort-button{
+  background-color: black;
+  color: white;
+  border-radius: 2px;
+  border: 1px solid black;
+}
+
+.sort-button:hover{
+  border: 1px solid white;
+}
+
 .map-container {
   margin-left: 100px;
 }
 
 .marker-content {
-  
+
 }
