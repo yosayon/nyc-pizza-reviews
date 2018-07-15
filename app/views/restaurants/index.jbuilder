@@ -9,4 +9,6 @@ json.restaurants @restaurants do |restaurant|
   json.restaurant_url restaurant.restaurant_url
   json.video_review_url restaurant.video_review_url
   json.description restaurant.description
+  json.lat restaurant.lat
+  json.lng restaurant.lng
 end
