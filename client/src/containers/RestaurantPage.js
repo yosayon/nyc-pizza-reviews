@@ -26,7 +26,7 @@ class RestaurantPage extends Component{
     return(
       <div className='restaurant-page-container'>
         <Filter handleSortChange={this.handleSortChange} />
-        <MapContainer/>
+        <MapContainer restaurants={this.props.all}/>
         <RestaurantList restaurants={this.props.all}/>
       </div>
     )
