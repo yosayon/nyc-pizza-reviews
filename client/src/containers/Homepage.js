@@ -2,7 +2,6 @@ import React from 'react';
 import background from '../pizza-background.png'
 import { NavLink } from 'react-router-dom'
 
-
 export const Homepage = () => {
   return(
     <div id='background-container'>
