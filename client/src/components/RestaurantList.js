@@ -1,24 +1,16 @@
-import React from 'react';
+import React from 'react'
 import { Restaurant } from './Restaurant'
-import { NavLink } from 'react-router-dom'
+import { SortButton } from './SortButton'
 
-export const RestaurantList = ({ restaurants }) => {
-  let displayRestaurant = restaurants.map((restaurant, index) => <Restaurant restaurant={restaurant} key={index}/>)
-  let length = displayRestaurant.length
+const RestaurantList = ({ restaurants, handleSortChange, sortKeys}) => {
+  let displayRestaurant = restaurants.map(restaurant => <Restaurant restaurant={restaurant} key={restaurant.id} sortKeys={sortKeys}/>)
+  let displayButton = sortKeys.map(key => <th><SortButton text={key} handleSortChange={handleSortChange}/></th>)
   return (
   <div className='restaurant-list-container'>
     <table>
      <tbody>
       <tr>
-        <th>Name:</th>
-        <th>Rating:</th>
-        <th>Video Review:</th>
-        <th>Address:</th>
-        <th>City:</th>
-        <th>State:</th>
-        <th>Zip code:</th>
-        <th>Phone:</th>
-        <th>Description:</th>
+        {displayButton}
       </tr>
         {displayRestaurant}
      </tbody>
@@ -26,3 +18,5 @@ export const RestaurantList = ({ restaurants }) => {
   </div>
   )
 }
+
+export default RestaurantList
