@@ -5,6 +5,7 @@ import { fetchRestaurants, updateSortOption } from '../actions/restaurantActions
 import  Filter  from '../components/Filter'
 import { getSortedRestaurants } from '../selectors/index'
 import { RestaurantList } from '../components/RestaurantList'
+import MapContainer from '../containers/MapContainer'
 
 class RestaurantPage extends Component{
   state = {
@@ -25,8 +26,8 @@ class RestaurantPage extends Component{
     return(
       <div className='restaurant-page-container'>
         <Filter handleSortChange={this.handleSortChange} />
+        <MapContainer/>
         <RestaurantList restaurants={this.props.all}/>
-
       </div>
     )
   }
