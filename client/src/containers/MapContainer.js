@@ -4,6 +4,7 @@ import {GoogleApiWrapper, Map, Marker} from 'google-maps-react'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getSortedRestaurants } from '../selectors/index'
+import {GoogleApiKey} from '../googleApi'
 
 
 export class MapContainer extends React.Component{
@@ -40,5 +41,5 @@ const mapStateToProps = state => {
 }
 
 export default GoogleApiWrapper({
-  apiKey: ENV['GOOGLE_API_KEY']
+  apiKey: GoogleApiKey
 })(MapContainer);
