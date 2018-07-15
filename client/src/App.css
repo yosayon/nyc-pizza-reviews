@@ -10,21 +10,21 @@ body {
   margin-bottom: 5%;
   margin-left: auto;
   margin-right: auto;
-  width: 80%;
+  width: 70%;
   justify-content: center;
   box-shadow:2px 2px 200px 5px white;
 }
 
 .pizza-background {
-  height: 650px;
-  width: 100%;
+  height: 550px;
+  width: 95%;
   opacity: 0.8;
 }
 
 /* Dave Portnoy Slogan */
 
 #background-container:hover .overlay{
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .overlay {
@@ -32,16 +32,15 @@ body {
   position: absolute;
   flex-flow: column;
   justify-content: center;
-  height: 650px;
-  width: 80%;
+  height: 200px;
+  width: 60%;
   opacity: 0;
   transition: .5s ease;
-  background-color: #333;
 }
 
 .one-bite-message {
   margin-top: 80px;
-  font-size: 40px;
+  font-size: 30px;
   text-align: center;
   font-weight: bold;
   color: white;
@@ -53,11 +52,15 @@ body {
 }
 
 .one-bite-message a:hover {
-  color: white;
+  color: blue;
   text-decoration: underline;
 }
 
 /* navbar  */
+#navbar-container-wrapper {
+  display: flex;
+  flex-flow: column;
+}
 
  #navbar-container {
    display: flex;
@@ -67,6 +70,18 @@ body {
    width: 80%;
    margin-left: auto;
    margin-right: auto;
+ }
+
+ .nav-bar-container-child-div{
+   display: flex;
+   flex-flow: column;
+   align-items: center;
+ }
+
+ .nav-bar-container-child-div img{
+   margin-top: 5px;
+   height: 5px;
+   width: 800px;
  }
 
  .nav-link{
@@ -144,4 +159,31 @@ body {
   width: 150px;
 }
 
-/* Filter on RestaurantPage */
+/* each restaurant on components/restaurant.js */
+
+.restaurant-list-container {
+  color: white;
+  font-size: 13px;
+  overflow-x: auto;
+  margin-top: 500px;
+  width: auto;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid white;
+    margin-top: 20px;
+}
+
+tr, th, td {
+    text-align: left;
+    padding: 2px;
+    color: white;
+    border: 1px solid white;
+}
+
+.map-container {
+  margin-left: 100px;
+}
