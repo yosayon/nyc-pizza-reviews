@@ -31,3 +31,4 @@
 /api_keys
 /.DS_Store
 /db/data
+.env
