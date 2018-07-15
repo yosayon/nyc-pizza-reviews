@@ -5,6 +5,7 @@ import { Homepage } from './containers/Homepage'
 import { Navbar } from './containers/Navbar'
 import { About } from './containers/About'
 import RestaurantPage from './containers/RestaurantPage'
+import MapContainer from './containers/MapContainer'
 
 export default class App extends Component {
   render() {
@@ -15,6 +16,7 @@ export default class App extends Component {
          <Route exact path="/" component={Homepage}/>
          <Route path="/pizza-reviews" component={RestaurantPage}/>
          <Route path="/about" component={About} />
+         <Route path='/view-map' component={MapContainer}/>
         </div>
       </Router>
     );
