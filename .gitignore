@@ -32,3 +32,5 @@
 /api_keys
 /.DS_Store
 /db/data
+
+/client/src/googleApi.js
