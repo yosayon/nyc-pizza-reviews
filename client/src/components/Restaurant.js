@@ -6,12 +6,12 @@ export const Restaurant = (props) => {
     <tr>
       <td><a href={restaurant_url}>{name}</a></td>
       <td><div>{rating}</div></td>
-      <td><div><a href={video_review_url}>Video Review</a></div></td>
       <td><div>{address}</div></td>
       <td><div>{city}</div></td>
       <td><div>{state}</div></td>
       <td><div>{zipcode}</div></td>
       <td><div>{phone_number}</div></td>
+      <td><div><a href={video_review_url}>Video Review</a></div></td>
       <td><div>{description}</div></td>
     </tr>
   )
