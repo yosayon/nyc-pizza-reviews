@@ -72,7 +72,7 @@ export class MapContainer extends React.Component{
             height: '60vh',
             width: '60%',
             'marginTop': '30px',
-            'marginLeft': '20%',
+            'marginLeft': '19%',
             'marginRight': 'auto',
             'alignSelf': 'center',
             border: '5px solid white',
