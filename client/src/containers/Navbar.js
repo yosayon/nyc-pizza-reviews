@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
-import logo from '../pizza-logo.jpeg'
+import logo from '../pizza-logo1.png'
 import lineImage from '../line.png'
 
 export const Navbar = () => {
