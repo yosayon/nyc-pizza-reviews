@@ -1,4 +1,5 @@
 export function fetchRestaurants() {
+  console.log("Fetching restaurants...")
   return function(dispatch){
     dispatch({ type: 'LOAD_RESTAURANTS'})
     return fetch('/api/restaurants')
