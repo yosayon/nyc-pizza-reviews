@@ -9,7 +9,6 @@ const RestaurantList = ({ restaurants, handleSortChange, sortKeys}) => {
   let displayButton = sortKeys.map(key => <th key={key}><SortButton text={key} handleSortChange={handleSortChange}/></th>)
   return (
   <div className='restaurant-list-container'>
-    <Search />
     <table>
       <tbody>
       <tr>
