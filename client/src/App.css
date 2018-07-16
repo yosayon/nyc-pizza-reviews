@@ -1,46 +1,56 @@
 body {
   font-family: "Courier New";
-  background-color: black;
+  background-color: #225E73;
 }
 
 /* Pizza Background */
-#background-container {
+#homepage-container {
   display: flex;
-  margin-top: 3%;
-  margin-bottom: 5%;
+  flex-flow: column;
+  align-content: space-between;
   margin-left: auto;
   margin-right: auto;
-  width: 70%;
-  justify-content: center;
-  box-shadow:2px 2px 200px 5px white;
+  /* box-shadow: 2px 2px 200px 5px black; */
 }
 
-.pizza-background {
+/* #background-container:hover .overlay{
+  opacity: 0.8;
+} */
+
+.map-container {
+ margin-top: 25px;
+ margin-left: 10%;
+}
+
+/* search icon underneath the map*/
+.search-container {
+  position: absolute;
+  display: flex;
+  height: 30px;
+  top: 570px;
+}
+.search-icon {
+  height: 20px;
+  width: 20px;
+  margin-right: 2px;
+}
+
+.search-box {
+  height: 14px;
+  width: 300px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+/* .pizza-background {
   height: 550px;
   width: 95%;
   opacity: 0.8;
-}
-
-/* Dave Portnoy Slogan */
-
-#background-container:hover .overlay{
-  opacity: 0.7;
-}
-
-.overlay {
-  display: flex;
-  position: absolute;
-  flex-flow: column;
-  justify-content: center;
-  height: 200px;
-  width: 60%;
-  opacity: 0;
-  transition: .5s ease;
-}
+} */
 
 .one-bite-message {
-  margin-top: 80px;
-  font-size: 30px;
+  margin-top: 0px;
+  font-size: 12px;
   text-align: center;
   font-weight: bold;
   color: white;
@@ -58,6 +68,7 @@ body {
 
 /* navbar  */
 #navbar-container-wrapper {
+  margin-top: 0;
   display: flex;
   flex-flow: column;
 }
@@ -88,6 +99,7 @@ body {
    text-decoration: none;
    text-shadow: 1px 1px gray;
    color: white;
+   font-size: 14px;
  }
 
  .nav-link:hover{
@@ -147,8 +159,10 @@ body {
    justify-content: center;
  }
 
- /* Filter on RestaurantPage */
 
+
+ /* Filter on RestaurantPage */
+/*
 .filter-container {
   display: flex;
   flex-flow: column;
@@ -157,16 +171,19 @@ body {
 .select-box {
   height: 20px;
   width: 150px;
-}
+} */
 
 /* each restaurant on components/restaurant.js */
 
 .restaurant-list-container {
-  color: white;
   font-size: 13px;
-  overflow-x: auto;
   margin-top: 500px;
   width: auto;
+}
+
+tr:first-child{
+  background: maroon;
+  position: sticky;
 }
 
 table {
@@ -174,14 +191,23 @@ table {
     border-spacing: 0;
     width: 100%;
     border: 1px solid white;
-    margin-top: 20px;
+    margin-top: 2px;
+    background-color: white;
 }
 
-tr, th, td {
+tr {
     text-align: left;
     padding: 2px;
-    color: white;
-    border: 1px solid white;
+    color: black;
+    border: 1px solid black;
+}
+
+td a {
+  color: black;
+}
+
+td a:hover {
+  color: red;
 }
 
 /* RestaurantList table header sort buttons */
@@ -193,20 +219,12 @@ tr, th, td {
 }
 
 .sort-button{
-  background-color: black;
+  background-color: maroon;
   color: white;
   border-radius: 2px;
-  border: 1px solid black;
+  border-color: maroon;
 }
 
 .sort-button:hover{
-  border: 1px solid white;
-}
-
-.map-container {
-  margin-left: 100px;
-}
-
-.marker-content {
-
+  border: 1px solid gray;
 }
