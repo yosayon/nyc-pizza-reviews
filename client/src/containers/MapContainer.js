@@ -63,7 +63,7 @@ export class MapContainer extends React.Component{
       )
 
     return (
-      <div className='map-container'>
+
         <Map
           google={this.props.google}
           zoom={10}
@@ -71,9 +71,13 @@ export class MapContainer extends React.Component{
           containerStyle={{
             height: '60vh',
             width: '60%',
-            'marginTop': '20px',
+            'marginTop': '30px',
+            'marginLeft': '20%',
+            'marginRight': 'auto',
+            'alignSelf': 'center',
             border: '5px solid white',
-            display: 'flex'
+            display: 'flex',
+            position: 'absolute'
           }}
           initialCenter={{
               lat: 40.783060,
@@ -89,7 +93,7 @@ export class MapContainer extends React.Component{
           </div>
         </InfoWindow>
        </Map>
-      </div>
+
     );
   }
 }
