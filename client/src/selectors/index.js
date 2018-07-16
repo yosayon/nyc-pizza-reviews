@@ -46,7 +46,6 @@ export const getSortedRestaurants = createSelector(
           if(a.description === b.description) return 0;
           return a.description < b.description ? -1 : 1;
         });
-
       default:
         return restaurants;
     }
