@@ -11,7 +11,7 @@ export class MapContainer extends React.Component{
   state = {
     showingInfoWindow: false,
     activeMarker: {},
-    selectedPlace: {},
+    selectedPlace: {}
   };
 
   onMarkerClick = (props, marker, e) =>
