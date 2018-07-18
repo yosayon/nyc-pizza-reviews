@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 
 const getSort = (state) => state.restaurants.sort
-const getRestaurants = (state) => state.restaurants.all
+const getRestaurants = (state) => state.restaurants.sortedRestaurants
 
 export const getSortedRestaurants = createSelector(
   [ getSort, getRestaurants ],
