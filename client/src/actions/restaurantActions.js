@@ -10,9 +10,10 @@ export function fetchRestaurants() {
     }
 }
 
-export function updateSortOption(sortKey){
+export function updateSortOption(sortKey, restaurants){
   return function(dispatch){
     dispatch({ type: 'LOAD_RESTAURANTS'})
     dispatch({ type: 'UPDATE_SORT_OPTION', sort: sortKey})
+    dispatch({ type: 'UPDATE_SORTED_RESTAURANTS', sortedRestaurants: restaurants})
   }
 }
