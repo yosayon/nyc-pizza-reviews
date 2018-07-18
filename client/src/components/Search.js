@@ -1,9 +1,10 @@
 import React from 'react'
 import searchIcon from '../search-icon.png'
 
-export const Search = ({onChangeText, searchText}) => {
+export const Search = ({onChangeText, searchText, count}) => {
   return(
     <div className='search-container'>
+      <div>{count}</div>
       <img
         className='search-icon'
         alt='search icon'
