@@ -244,3 +244,7 @@ td a:hover {
   padding-left: 50px;
   font-size: 15px;
 }
+
+.form-group.has-error{
+  border: 1px solid red;
+}
