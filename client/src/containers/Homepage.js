@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 // import MapContainer from './MapContainer'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchRestaurants, updateSortOption} from '../actions/restaurantActions'
+import { fetchRestaurants, updateSortOption} from '../actions/index'
 import { getSortedRestaurants } from '../selectors/index'
 import RestaurantPage from './RestaurantPage'
 import { Search } from '../components/Search'
