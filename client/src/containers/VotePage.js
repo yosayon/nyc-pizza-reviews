@@ -1,12 +1,77 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import { VoteForm } from '../components/VoteForm'
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { createRecommendation } from '../actions/index'
 
 export class VotePage extends Component{
+  state = {
+    name: '',
+    address: '',
+    city: '',
+    state: 'New York',
+    formErrors: {name: '', address: '', city: ''},
+    nameValid: false,
+    addressValid: false,
+    cityValid: false,
+    formValid: false
+  }
+
   onHandleFormSubmit = e => {
     e.preventDefault();
-    console.log(e)
+    let recommendation = {name: this.state.name, address: this.state.address, city: this.state.city}
+    if(this.state.formValid){
+      this.props.createRecommendation(recommendation)
+    }else {
+      console.log("not a valid form")
+    }
   }
+
+  onChangeText = e => {
+    e.persist()
+   this.setState({[e.target.name]: e.target.value }, () => this.validateInput(e.target.name, e.target.value))
+  }
+
+  validateInput = (name,value) => {
+    let formErrors = this.state.formErrors
+    let nameValid = this.state.nameValid
+    let addressValid = this.state.addressValid
+    let cityValid = this.state.cityValid
+
+    switch(name){
+      case 'name':
+        nameValid = value.trim().length > 0
+        formErrors.name = nameValid ? '' : ' cannot be blank'
+        break;
+      case 'address':
+        addressValid = value.trim().length > 0
+        formErrors.address = addressValid ? '' : ' cannot be blank'
+        break;
+      case 'city':
+        cityValid = value.trim().length > 0
+        formErrors.city = cityValid ? '' : ' cannot be blank'
+        break;
+      default:
+        break;
+    }
+      this.setState({
+        formErrors: formErrors,
+        nameValid: nameValid,
+        addressValid: addressValid,
+        cityValid: cityValid
+      }, this.validateForm)
+
+  }
+
+  validateForm = () => {
+    this.setState({formValid: this.state.nameValid && this.state.addressValid && this.state.cityValid})
+  }
+
+  errorClass = error => {
+   return(error.length === 0 ? '' : 'has-error');
+}
+
+
   render(){
     return(
       <div className="vote-page-container">
@@ -20,7 +85,15 @@ export class VotePage extends Component{
             Add and vote on which NY pizza place you think should be next!
           </div>
           <div className="vote-form-container">
-            <VoteForm onHandleFormSubmit={this.onHandleFormSubmit}/>
+            <VoteForm
+              onHandleFormSubmit={this.onHandleFormSubmit}
+              name={this.state.name}
+              address={this.state.address}
+              city={this.state.city}
+              onChangeText={this.onChangeText}
+              formErrors={this.state.formErrors}
+              errorClass={this.errorClass}
+            />
           </div>
         </div>
       </div>
@@ -31,8 +104,14 @@ export class VotePage extends Component{
 
 const mapStateToProps = state => {
   return({
-    all: state.restaurants.all
+    all: state.recommendations.all
   })
 }
 
-export default connect(mapStateToProps, null)(VotePage)
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({
+    createRecommendation,
+  }, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(VotePage)
