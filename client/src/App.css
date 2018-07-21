@@ -215,3 +215,32 @@ td a:hover {
 .sort-button:hover{
   border: 1px solid gray;
 }
+
+.vote-page-container {
+  height: 600px;
+}
+
+.vote-page-banner{
+  background: url('./vote-container-background.jpeg');
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: row;
+  justify-content: flex-start;
+  align-items: center;
+  color: white;
+  text-align: center;
+  /* border: 1px solid white; */
+  height: 400px;
+}
+
+.vote-message-container{
+  width: 30%;
+  font-size: 15px;
+  padding-right: 50px;
+  border-right: 1px solid white;
+}
+
+.vote-form-container{
+  padding-left: 50px;
+  font-size: 15px;
+}
