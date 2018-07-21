@@ -1,3 +1,5 @@
+import fetch from 'isomorphic-fetch'
+
 export function fetchRestaurants() {
   console.log("Fetching restaurants...")
   return function(dispatch){
