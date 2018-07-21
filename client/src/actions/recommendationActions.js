@@ -1,22 +1,19 @@
-export function addRecommendations(rec) {
-  return function(dispatch){
-    dispatch({ type: 'LOADING'})
-    return fetch('/api/restaurants')
-      .then(res => res.json())
-      .then(res => {
-        dispatch({ type: 'ADD_RESTAURANTS', restaurants: res.restaurants})
-      })
-    }
-}
+import fetch from 'isomorphic-fetch'
 
-// fetch('https://mywebsite.com/endpoint/', {
-//   method: 'POST',
-//   headers: {
-//     Accept: 'application/json',
-//     'Content-Type': 'application/json',
-//   },
-//   body: JSON.stringify({
-//     firstParam: 'yourValue',
-//     secondParam: 'yourOtherValue',
-//   }),
-// });
+export function createRecommendation(recommendation){
+ let body = JSON.stringify({recommendation})
+  return function(dispatch){
+    dispatch({type: 'LOADING'})
+    return fetch('/api/recommendations', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: body
+    })
+    .then(res => res.json())
+    .then (rec => {
+      dispatch({ type: 'ADD_NEW_RECOMMENDATION', rec: rec})})
+  }
+}
