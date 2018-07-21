@@ -1,4 +1,12 @@
-export default function restaurantReducer(state = {all: [], loading: false, sortKeys: [], sort: 'all', sortedRestaurants: []}, action){
+export default function restaurantReducer(state = {
+  all: [],
+  loading: false,
+  sortKeys: [],
+  sort: 'all',
+  sortedRestaurants: []
+  },
+  action){
+
   switch(action.type){
     case 'LOAD_RESTAURANTS':
     console.log("Loading Restaurants...")
