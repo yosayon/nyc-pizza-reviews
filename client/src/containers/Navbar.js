@@ -7,7 +7,7 @@ export const Navbar = () => {
     return(
       <div id='navbar-container-wrapper'>
        <div id='navbar-container'>
-         <NavLink className='nav-link' to='/pizza-reviews'> Reviews </NavLink>
+         <NavLink className='nav-link' to='/vote'> vote </NavLink>
          <NavLink className='pizza-logo' to='/'><img alt='logo' src={logo}/></NavLink>
          <NavLink className='nav-link' to='/about'> About </NavLink>
        </div>
