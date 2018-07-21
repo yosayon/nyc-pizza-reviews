@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom'
-import MapContainer from './MapContainer'
+// import MapContainer from './MapContainer'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchRestaurants, updateSortOption} from '../actions/restaurantActions'
 import { getSortedRestaurants } from '../selectors/index'
 import RestaurantPage from './RestaurantPage'
 import { Search } from '../components/Search'
+
+// <MapContainer restaurants={this.state.restaurants}/>
 
 
 export class Homepage extends Component{
@@ -54,7 +56,7 @@ export class Homepage extends Component{
     <div id='homepage-container'>
         <div className='one-bite-message'>ONE BITE EVERYBODY KNOWS THE RULES - Dave Portnoy, El Presidente</div>
         <div className='one-bite-message'>Visit <NavLink to='http://www.barstoolsports.com'>barstoolsports</NavLink></div>
-        <MapContainer restaurants={this.state.restaurants}/>
+
         <Search onChangeText={this.onChangeText} searchText={this.state.searchText} count={this.state.restaurants.length}/>
         <RestaurantPage onChangeText={this.onChangeText} restaurants={this.state.restaurants} handleSortChange={this.handleSortChange} sortKeys={this.props.sortKeys}/>
     </div>
