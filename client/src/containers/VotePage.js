@@ -14,10 +14,26 @@ export class VotePage extends Component{
     nameValid: false,
     addressValid: false,
     cityValid: false,
-    formValid: false
+    formValid: false,
+    active: false
   }
 
+  // componentDidMount(){
+  //   console.log(this.props)
+  // }
+  //
+  // componentDidUpdate(prevProps, prevState){
+  //  if(this.state.active === false){
+  //     this.setState({
+  //       ...this.state,
+  //       active: true
+  //     })
+  //   }
+  // }
+
   onHandleFormSubmit = e => {
+    debugger;
+    console.log(this.props)
     e.preventDefault();
     let recommendation = {name: this.state.name, address: this.state.address, city: this.state.city}
     if(this.state.formValid){
@@ -86,7 +102,7 @@ export class VotePage extends Component{
           </div>
           <div className="vote-form-container">
             <VoteForm
-              onHandleFormSubmit={this.onHandleFormSubmit}
+              onHandleFormSubmit={this.onHandleFormSubmit.bind(this)}
               name={this.state.name}
               address={this.state.address}
               city={this.state.city}
@@ -102,16 +118,14 @@ export class VotePage extends Component{
   }
 }
 
-const mapStateToProps = state => {
-  return({
-    all: state.recommendations.all
-  })
-}
+// const mapStateToProps = state => {
+//   return({
+//     all: state.recommendations.all
+//   })
+// }
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({
-    createRecommendation,
-  }, dispatch);
-};
+  return bindActionCreators({createRecommendation}, dispatch);
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(VotePage)
+export default connect(null, mapDispatchToProps)(VotePage)
