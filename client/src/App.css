@@ -225,19 +225,25 @@ td a:hover {
   display: flex;
   flex-wrap: wrap;
   flex-flow: row;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: center;
   color: white;
   text-align: center;
-  /* border: 1px solid white; */
   height: 400px;
 }
 
-.vote-message-container{
+.vote-message-container-left{
   width: 30%;
   font-size: 15px;
   padding-right: 50px;
   border-right: 1px solid white;
+}
+
+.vote-message-container-right{
+  width: 30%;
+  font-size: 15px;
+  padding-right: 50px;
+  border-left: 1px solid white;
 }
 
 .vote-form-container{
