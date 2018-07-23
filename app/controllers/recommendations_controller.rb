@@ -1,5 +1,6 @@
 class RecommendationsController < ApiController
   def index
+    @recommendations = Recommendation.all
   end
 
   def create
