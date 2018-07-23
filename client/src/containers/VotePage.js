@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { VoteForm } from '../components/VoteForm'
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { createRecommendation } from '../actions/index'
+
 
 export class VotePage extends Component{
   state = {
@@ -16,36 +14,6 @@ export class VotePage extends Component{
     cityValid: false,
     formValid: false,
     active: false
-  }
-
-  // componentDidMount(){
-  //   console.log(this.props)
-  // }
-  //
-  // componentDidUpdate(prevProps, prevState){
-  //  if(this.state.active === false){
-  //     this.setState({
-  //       ...this.state,
-  //       active: true
-  //     })
-  //   }
-  // }
-
-  onHandleFormSubmit = e => {
-    debugger;
-    console.log(this.props)
-    e.preventDefault();
-    let recommendation = {name: this.state.name, address: this.state.address, city: this.state.city}
-    if(this.state.formValid){
-      this.props.createRecommendation(recommendation)
-    }else {
-      console.log("not a valid form")
-    }
-  }
-
-  onChangeText = e => {
-    e.persist()
-   this.setState({[e.target.name]: e.target.value }, () => this.validateInput(e.target.name, e.target.value))
   }
 
   validateInput = (name,value) => {
@@ -79,6 +47,31 @@ export class VotePage extends Component{
 
   }
 
+  onChangeText = e => {
+    e.persist()
+   this.setState({[e.target.name]: e.target.value }, () => this.validateInput(e.target.name, e.target.value))
+  }
+
+  onHandleFormSubmit = e => {
+    e.preventDefault();
+    let recommendation = JSON.stringify({name: this.state.name, address: this.state.address, city: this.state.city, state: 'New York', comments: [], votes: 0})
+    if(this.state.formValid){
+      this.props.createRecommendation(recommendation)
+      this.setState({
+        ...this.state,
+        name: '',
+        address: '',
+        city: '',
+        nameValid: false,
+        addressValid: false,
+        cityValid: false,
+        formValid: false
+      })
+    }else{
+      console.log("invalid form")
+    }
+  }
+
   validateForm = () => {
     this.setState({formValid: this.state.nameValid && this.state.addressValid && this.state.cityValid})
   }
@@ -86,7 +79,6 @@ export class VotePage extends Component{
   errorClass = error => {
    return(error.length === 0 ? '' : 'has-error');
 }
-
 
   render(){
     return(
@@ -97,12 +89,12 @@ export class VotePage extends Component{
         </div>
 
         <div className="vote-page-banner">
-          <div className="vote-message-container">
-            Add and vote on which NY pizza place you think should be next!
+          <div className="vote-message-container-left">
+            Add a pizza place you think should be reviewed next!
           </div>
           <div className="vote-form-container">
             <VoteForm
-              onHandleFormSubmit={this.onHandleFormSubmit.bind(this)}
+              onHandleFormSubmit={this.onHandleFormSubmit}
               name={this.state.name}
               address={this.state.address}
               city={this.state.city}
@@ -111,21 +103,12 @@ export class VotePage extends Component{
               errorClass={this.errorClass}
             />
           </div>
+          <div className="vote-message-container-right">
+            Vote to get your recommendations noticed!
+          </div>
         </div>
       </div>
 
     )
   }
 }
-
-// const mapStateToProps = state => {
-//   return({
-//     all: state.recommendations.all
-//   })
-// }
-
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators({createRecommendation}, dispatch);
-}
-
-export default connect(null, mapDispatchToProps)(VotePage)
