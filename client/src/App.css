@@ -217,7 +217,7 @@ td a:hover {
 }
 
 .vote-page-container {
-  height: 600px;
+  height: 1000px;
 }
 
 .vote-page-banner{
@@ -253,4 +253,58 @@ td a:hover {
 
 .form-group.has-error{
   border: 1px solid red;
+}
+
+.recommendations-list-container{
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.recommendation-container{
+  background: url('./pictures/recommendationbackground.jpeg');
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  color: maroon;
+  font-size: 20px;
+  width: 800px;
+  margin: 2px;
+  padding: 5px;
+  border: 5px solid maroon;
+}
+
+.recommendation-container:hover{
+  opacity: 0.9;
+}
+
+.rec-content{
+  width: 50%;
+  align-self: center;
+}
+
+.vote-button img{
+  height: 30px;
+  float: right;
+}
+
+.vote-text{
+  visibility: hidden;
+  width: 120px;
+  background-color: maroon;
+  color: white;
+  text-align: center;
+  padding: 5px 0;
+  float: right;
+  z-index: 1;
+}
+
+.vote-button:hover .vote-text{
+  visibility: visible;
+}
+
+.vote-button img:hover{
+  height: 50px;
 }
