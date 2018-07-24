@@ -7,7 +7,7 @@ import { VotePage } from '../components/VotePage'
 import {withRouter} from 'react-router-dom'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchRestaurants, updateSortOption, fetchRecommendations, createRecommendation} from '../actions/index'
+import { fetchRestaurants, updateSortOption, fetchRecommendations, createRecommendation, upVote} from '../actions/index'
 import { getSortedRestaurants } from '../selectors/index'
 
 
@@ -17,11 +17,11 @@ export class RouteContainer extends Component{
     currentSort: 'all',
     searchText: '',
     restaurants: [],
-    active: false
+    active: false,
+    recommendations: []
   }
 
   componentDidMount(){
-    console.log("hi")
     this.props.fetchRestaurants()
     this.props.fetchRecommendations()
   }
@@ -68,7 +68,7 @@ export class RouteContainer extends Component{
         <Route
           exact
           path="/vote"
-          render={() => <VotePage createRecommendation={this.props.createRecommendation}/>}
+          render={() => <VotePage createRecommendation={this.props.createRecommendation} recommendations={this.props.recommendations} upVote={this.props.upVote}/>}
         />
         <Route
           exact
@@ -82,8 +82,9 @@ const mapDispatchToProps = dispatch => {
   return bindActionCreators({
     fetchRestaurants,
     updateSortOption,
+    fetchRecommendations,
     createRecommendation,
-    fetchRecommendations
+    upVote
   }, dispatch);
 };
 
@@ -91,7 +92,8 @@ const mapStateToProps = state => {
   return ({
     all: state.restaurants.all,
     sortKeys: state.restaurants.sortKeys,
-    sortedRestaurants: getSortedRestaurants(state)
+    sortedRestaurants: getSortedRestaurants(state),
+    recommendations: state.recommendations.all
   })
 }
 
