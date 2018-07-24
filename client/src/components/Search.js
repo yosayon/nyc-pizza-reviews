@@ -1,5 +1,5 @@
 import React from 'react'
-import searchIcon from '../search-icon.png'
+import searchIcon from '../pictures/search-icon.png'
 
 export const Search = ({onChangeText, searchText, count}) => {
   return(

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { VoteForm } from '../components/VoteForm'
+import { VoteForm } from './VoteForm'
 
 
 export class VotePage extends Component{

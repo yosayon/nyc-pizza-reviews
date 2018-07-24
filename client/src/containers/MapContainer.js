@@ -2,9 +2,9 @@ import React from 'react';
 import {render} from 'react-dom';
 import {GoogleApiWrapper, Map, Marker, InfoWindow} from 'google-maps-react'
 import {GoogleApiKey} from '../googleApi'
-import redMarker from '../redMarker.png'
-import blueMarker from '../blueMarker.png'
-import yellowMarker from '../yellowMarker.png'
+import redMarker from '../pictures/redMarker.png'
+import blueMarker from '../pictures/blueMarker.png'
+import yellowMarker from '../pictures/yellowMarker.png'
 
 
 export class MapContainer extends React.Component{

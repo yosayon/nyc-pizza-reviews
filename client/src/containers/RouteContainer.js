@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
-import { Homepage} from './containers/Homepage'
-import { Navbar } from './containers/Navbar'
-import { About } from './containers/About'
-import { VotePage } from './containers/VotePage'
+import { Homepage} from '../components/Homepage'
+import { Navbar } from '../components/Navbar'
+import { About } from '../components/About'
+import { VotePage } from '../components/VotePage'
 import {withRouter} from 'react-router-dom'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchRestaurants, updateSortOption, fetchRecommendations, createRecommendation} from './actions/index'
-import { getSortedRestaurants } from './selectors/index'
+import { fetchRestaurants, updateSortOption, fetchRecommendations, createRecommendation} from '../actions/index'
+import { getSortedRestaurants } from '../selectors/index'
 
 
 

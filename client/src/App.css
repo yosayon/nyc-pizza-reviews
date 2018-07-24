@@ -221,7 +221,7 @@ td a:hover {
 }
 
 .vote-page-banner{
-  background: url('./vote-container-background.jpeg');
+  background: url('./pictures/vote-container-background.jpeg');
   display: flex;
   flex-wrap: wrap;
   flex-flow: row;
