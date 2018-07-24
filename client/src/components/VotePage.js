@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { VoteForm } from './VoteForm'
+import { RecommendationsList } from './RecommendationsList'
 
 
 export class VotePage extends Component{
@@ -13,8 +14,16 @@ export class VotePage extends Component{
     addressValid: false,
     cityValid: false,
     formValid: false,
-    active: false
+    active: false,
   }
+
+  // shouldComponentUpdate(nextProps, nextState){
+  //  if(nextState.update !== this.state.update){
+  //    return false;
+  //  }else{
+  //    return true;
+  //  }
+  // }
 
   validateInput = (name,value) => {
     let formErrors = this.state.formErrors
@@ -45,6 +54,10 @@ export class VotePage extends Component{
         cityValid: cityValid
       }, this.validateForm)
 
+  }
+
+  onVote = id => {
+    this.props.upVote(id)
   }
 
   onChangeText = e => {
@@ -104,9 +117,10 @@ export class VotePage extends Component{
             />
           </div>
           <div className="vote-message-container-right">
-            Vote to get your recommendations noticed!
+            Click on the pizza icon to vote for the next review!
           </div>
         </div>
+        {this.props.recommendations ? <RecommendationsList recommendations={this.props.recommendations} onVote={this.onVote}/> : ''}
       </div>
 
     )
