@@ -34,8 +34,23 @@ export function fetchRecommendations(){
     dispatch({type: 'LOADING'})
     return fetch('/api/recommendations')
     .then(response => response.json())
-    .then(recommendations => {
-      dispatch({type: 'ADD_RECOMMENDATIONS', recommendations: recommendations})
+    .then(rec => {
+      dispatch({type: 'ADD_RECOMMENDATIONS', recommendations: rec})
     })
   }
+}
+
+export function upVote(id){
+  console.log("Upvoting!")
+  return function(dispatch){
+    dispatch({type: 'LOADING'})
+    return fetch(`/api/recommendations/${id}`, {
+    method: 'PATCH',
+    headers: {'Content-Type': 'application/json','Accept': 'application/json'},
+  })
+  .then(response => response.json())
+  .then(rec => {
+    dispatch({type: 'UPVOTE', recommendation: rec})
+  })
+}
 }
