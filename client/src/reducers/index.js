@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import restaurantReducer from './restaurants';
-import recommendationReducer from './recommendations'
+import restaurants from './restaurants';
+import recommendations from './recommendations'
 
 export const rootReducer = combineReducers({
-  restaurants: restaurantReducer,
-  recommendations: recommendationReducer
+  restaurants,
+  recommendations
 });
