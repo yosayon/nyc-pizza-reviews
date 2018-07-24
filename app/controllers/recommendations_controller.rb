@@ -8,6 +8,12 @@ class RecommendationsController < ApiController
     render json: recommendation
   end
 
+  def update
+    recommendation = Recommendation.find(params['id'])
+    recommendation.increaseVote
+    render json: recommendation
+  end
+
 private
 
   def recommendation_params
