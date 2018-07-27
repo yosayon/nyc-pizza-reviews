@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom'
 // import MapContainer from '../containers/MapContainer'
 import { Search } from './Search'
 import RestaurantPage from './RestaurantPage'
+ // <MapContainer restaurants={restaurants}/>
 
-     // <MapContainer restaurants={this.state.restaurants}/>
 
 export const Homepage = ({onChangeText, handleSortChange, restaurants, sortKeys, searchText}) => {
  return(
