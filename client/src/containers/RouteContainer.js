@@ -4,13 +4,12 @@ import { Homepage} from '../components/Homepage'
 import { Navbar } from '../components/Navbar'
 import { About } from '../components/About'
 import { VotePage } from '../components/VotePage'
+import { RecommendationShowPage } from '../components/RecommendationShowPage'
 import {withRouter} from 'react-router-dom'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchRestaurants, updateSortOption, fetchRecommendations, createRecommendation, upVote} from '../actions/index'
 import { getSortedRestaurants } from '../selectors/index'
-
-
 
 export class RouteContainer extends Component{
   state={
@@ -27,6 +26,7 @@ export class RouteContainer extends Component{
   }
 
   componentDidUpdate(prevProps, prevState){
+    // console.log("hi componentdidmount", this.props.all)
    if(this.state.active === false){
       this.setState({
         ...this.state,
@@ -59,7 +59,10 @@ export class RouteContainer extends Component{
   render(){
     return(
       <div className='app-container'>
-        <Navbar />
+        <Route
+          path='/'
+          component={Navbar}
+        />
         <Route
           exact
           path="/"
@@ -68,7 +71,7 @@ export class RouteContainer extends Component{
         <Route
           exact
           path="/vote"
-          render={() => <VotePage createRecommendation={this.props.createRecommendation} recommendations={this.props.recommendations} upVote={this.props.upVote}/>}
+          render={() => <VotePage recommendations={this.props.recommendations} createRecommendation={this.props.createRecommendation} upVote={this.props.upVote}/>}
         />
         <Route
           exact

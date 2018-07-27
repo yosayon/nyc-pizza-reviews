@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { VoteForm } from './VoteForm'
 import { RecommendationsList } from './RecommendationsList'
+import { RecommendationShowPage } from '../components/RecommendationShowPage'
+import { Route } from 'react-router-dom'
 
 
 export class VotePage extends Component{
@@ -96,6 +98,11 @@ export class VotePage extends Component{
   render(){
     return(
       <div className="vote-page-container">
+      <Route
+        exact
+        path={`/vote/:recommendationId`}
+        render={() => <RecommendationShowPage />}
+      />
         <div className="one-bite-message">
           <h4>What did Pete name his pet dough? </h4>
           <p>....pete's dough, get it?. Okay, I'll stop.</p>

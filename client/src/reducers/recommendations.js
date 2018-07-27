@@ -1,7 +1,7 @@
 export default function recommendationReducer(state = {all: [],loading: false},action){
   switch(action.type){
     case 'LOADING':
-    console.log("Loading...")
+    console.log("Loading Recommendations...")
       return {...state, loading: true}
     case 'ADD_NEW_RECOMMENDATION':
       console.log("Adding Recommendation that was just created...", action.recommendation)
@@ -14,7 +14,6 @@ export default function recommendationReducer(state = {all: [],loading: false},a
     case 'UPVOTE':
       console.log("Voting up!")
       let recommendation = [action.recommendation]
-      console.log(recommendation)
       let recommendations = state.all.filter(rec => rec.id !== action.recommendation.id)
       let all = recommendation.concat(recommendations)
       return {all: all, loading: false}
