@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import logo from './pizza-logo1.png'
 import lineImage from './line.png'
 
-export const Navbar = () => {
+export const Navbar = ({name}) => {
     return(
       <div id='navbar-container-wrapper'>
        <div id='navbar-container'>
