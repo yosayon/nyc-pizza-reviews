@@ -1,25 +1,46 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
-import facebooklogin from './images/facebooklogin.png'
 import oneBiteLogo from './images/one-bite.png'
 import suggestion from './images/suggestion.png'
 import forumImage from './images/forum-img.png'
 import socialMedia from './images/socialmedia.png'
 import listPic from './images/list-pic.png'
+import FacebookLogin from 'react-facebook-login';
 
-const Homepage = (props) => {
+
+
+export default class Homepage extends Component{
+
+  responseFacebook = response => {
+    const userData = JSON.stringify({id: response.id, name: response.name, email: response.email, imageUrl: response.picture.data.url })
+    if(response){
+      this.props.find_or_create_user(response, userData)
+    }else{
+      console.log("not signed in")
+    }
+  }
+
+
+  render(){
     return(
       <div className='homepage-container'>
         <div className='one-bite-message'>ONE BITE EVERYBODY KNOWS THE RULES - Dave Portnoy, El Presidente</div>
         <div className='one-bite-message'>Visit <NavLink to='http://www.barstoolsports.com'>barstoolsports</NavLink></div>
         <div className='homepage-content-container'>
-
           <div className='homepage-content'>
-            <div className='homepage-content-text'>Log in with Facebook</div>
             <div className='homepage-content-image'>
-              <NavLink className='nav-link' to='/login'>
-                <img id='facebook-login' alt='facebook-login' src={facebooklogin}/>
-              </NavLink>
+            {this.props.loginStatus === 'connected' ?
+              (<div>Welcome, {this.props.name}!
+                <button onClick={this.props.logout}>Logout</button>
+              </div>) :
+              (<FacebookLogin
+                appId="2117404221846949"
+                autoLoad={false}
+                fields="name,email,picture"
+                callback={this.responseFacebook}
+                version="3.1"
+              />)
+            }
             </div>
           </div>
 
@@ -71,6 +92,5 @@ const Homepage = (props) => {
         </div>
       </div>
     )
+  }
 }
-
-export default Homepage
