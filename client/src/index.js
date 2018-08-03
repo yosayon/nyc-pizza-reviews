@@ -1,26 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
 import App from './1_Root/App'
-import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk'
-import { rootReducer } from './Util/reducers/index';
 import { BrowserRouter as Router } from 'react-router-dom'
-
-const store = createStore(
-  rootReducer,
-  compose(
-    applyMiddleware(thunk),
-    window.devToolsExtension ? window.devToolsExtension() : f => f
-  )
-);
+import { PersistGate } from 'redux-persist/integration/react'
+import { persistor } from './configureStore'
+import store from './configureStore'
 
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
-      <App />
-    </Router>
+    <PersistGate loading={null} persistor={persistor}>
+      <Router>
+        <App />
+      </Router>
+    </PersistGate>
   </Provider>,
     document.getElementById('root')
 );
