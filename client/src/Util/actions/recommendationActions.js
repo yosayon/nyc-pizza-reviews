@@ -1,18 +1,5 @@
 import fetch from 'isomorphic-fetch'
 
-// export function success(response){
-//   return dispatch => {
-//     dispatch({type: 'LOADING'})
-//     dispatch({type: 'ADD_NEW_RECOMMENDATION', recommendation: response.json()})
-//   }
-// }
-//
-// export function failure(error){
-//   return dispatch => {
-//     dispatch({type: 'CREATE_REC_FAILED', error})
-//   }
-// }
-
 export function createRecommendation(recommendation){
   return function(dispatch){
       dispatch({type: 'LOADING'})
