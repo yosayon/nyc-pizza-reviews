@@ -30,8 +30,8 @@ export default class Homepage extends Component{
           <div className='homepage-content'>
             <div className='homepage-content-image'>
             {this.props.loginStatus === 'connected' ?
-              (<div>Welcome, {this.props.name}!
-                <button onClick={this.props.logout}>Logout</button>
+              (<div className='homepage-content-text'>Welcome, {this.props.name}!<br/><br/>
+                <button className='logout-button' onClick={this.props.logout}>Logout</button>
               </div>) :
               (<FacebookLogin
                 appId="2117404221846949"
