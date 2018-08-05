@@ -52,10 +52,6 @@ class RecommendationsPage extends Component{
 
   }
 
-  onVote = id => {
-    this.props.upVote(id)
-  }
-
   onChangeText = e => {
     e.persist()
    this.setState({[e.target.name]: e.target.value }, () => this.validateInput(e.target.name, e.target.value))
@@ -63,21 +59,25 @@ class RecommendationsPage extends Component{
 
   onHandleFormSubmit = e => {
     e.preventDefault();
-    let recommendation = JSON.stringify({name: this.state.name, address: this.state.address, city: this.state.city, state: 'New York', comments: [], votes: 0})
-    if(this.state.formValid){
-      this.props.createRecommendation(recommendation)
-      this.setState({
-        ...this.state,
-        name: '',
-        address: '',
-        city: '',
-        nameValid: false,
-        addressValid: false,
-        cityValid: false,
-        formValid: false
-      })
+    if(this.props.loginStatus === 'connected' && this.props.userId){
+      let recommendation = JSON.stringify({name: this.state.name, address: this.state.address, city: this.state.city, state: 'New York', comments: [], votes: [], user_id: this.props.userId})
+      if(this.state.formValid){
+        this.props.createRecommendation(recommendation, this.props.userId)
+        this.setState({
+          ...this.state,
+          name: '',
+          address: '',
+          city: '',
+          nameValid: false,
+          addressValid: false,
+          cityValid: false,
+          formValid: false
+        })
+      }else{
+        console.log("invalid form")
+      }
     }else{
-      console.log("invalid form")
+      console.log("you must be logged in")
     }
   }
 
@@ -118,7 +118,9 @@ class RecommendationsPage extends Component{
         </div>
         <RecommendationsList
           recommendations={this.props.recommendations}
-          onVote={this.onVote}
+          onVote={this.props.onVote}
+          loginStatus={this.props.loginStatus}
+          match={this.props.match}
         />
       </div>
       )
