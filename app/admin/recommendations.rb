@@ -1,5 +1,5 @@
 ActiveAdmin.register Recommendation do
-  permit_params :name, :address, :city, :state, :votes, :comments
+  permit_params :name, :address, :city, :state, :votes, :comments, :user_id
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
