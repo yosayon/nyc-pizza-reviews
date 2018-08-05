@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_01_040232) do
+ActiveRecord::Schema.define(version: 2018_08_04_193813) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -43,6 +43,16 @@ ActiveRecord::Schema.define(version: 2018_08_01_040232) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "recommendation_id"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "user_name"
+    t.string "user_email"
+  end
+
   create_table "recommendations", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -52,6 +62,7 @@ ActiveRecord::Schema.define(version: 2018_08_01_040232) do
     t.text "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -76,6 +87,13 @@ ActiveRecord::Schema.define(version: 2018_08_01_040232) do
     t.string "name"
     t.string "image_url"
     t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "recommendation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
