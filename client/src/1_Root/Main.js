@@ -53,6 +53,24 @@ class Main extends Component{
     })
    }
 
+   onVote = id => {
+     if(this.props.loginStatus === 'connected'){
+       if(this.checkUserVote(id)){
+         console.log("You already voted for this place!")
+       }else{
+         this.props.upVote(id, this.props.userId)
+       }
+     }else{
+       console.log("You must be signed in to vote!")
+     }
+   }
+
+   checkUserVote = id => {
+     const recommendation = this.props.recommendations.find(r => r.id === id)
+     let voted = recommendation.votes.find(vote => vote.user_id === this.props.userId) ? true : false
+     return voted
+   }
+
    render(){
      return(
       <main>
@@ -90,7 +108,10 @@ class Main extends Component{
               recommendations={this.state.recommendations}
               createRecommendation={this.props.createRecommendation}
               upVote={this.props.upVote}
+              onVote={this.onVote}
               fetchRecommendations={this.props.fetchRecommendations}
+              loginStatus={this.props.loginStatus}
+              userId={this.props.userId}
               />
             }
           />
@@ -101,7 +122,7 @@ class Main extends Component{
               {...props}
               recommendations={this.state.recommendations}
               upvote={this.props.upvote}
-
+              onVote={this.onVote}
               />
             }
           />
@@ -142,36 +163,4 @@ const mapStateToProps = state => {
   })
 }
 
-// <Route
-//   exact
-//   path='/reviews'
-//   render={(props) => <ReviewsPage
-//       {...props}
-//       searchText={this.state.searchText}
-//       restaurants={this.state.restaurants}
-//       sortKeys={this.props.sortKeys}
-//       onChangeText={this.onChangeText}
-//       handleSortChange={this.handleSortChange}
-//       fetchRestaurants={this.props.fetchRestaurants}
-//       />
-//     }
-//     />
-
-
-// <Route
-//   exact
-//   path='/reviews'
-//   render={(props) => <ReviewsPage
-//     {...props}
-//     loginStatus={this.props.loginStatus}
-//     component={ReviewsPage}
-//     searchText={this.state.searchText}
-//     restaurants={this.state.restaurants}
-//     sortKeys={this.props.sortKeys}
-//     onChangeText={this.onChangeText}
-//     handleSortChange={this.handleSortChange}
-//     fetchRestaurants={this.props.fetchRestaurants}
-//     />
-//   }
-// />
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
