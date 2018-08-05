@@ -6,4 +6,5 @@ json.recommendations @recommendations do |r|
   json.state r.state
   json.votes r.votes
   json.comments r.comments
+  json.user_id r.user_id
 end
