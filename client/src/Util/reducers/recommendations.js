@@ -1,4 +1,7 @@
-export default function recommendationReducer(state = {all: [],loading: false},action){
+export default function recommendationReducer(state = {
+    all: [],
+    loading: false
+  }, action){
   switch(action.type){
     case 'LOADING':
     console.log("Loading Recommendations...")
@@ -8,7 +11,7 @@ export default function recommendationReducer(state = {all: [],loading: false},a
       let rec = action.recommendation
       return {all: [...state.all, rec], loading: false }
     case 'ADD_RECOMMENDATIONS':
-      console.log("Adding Recommendations From API....")
+      console.log("Adding Recommendations From API....", action.recommendations)
       let recs = action.recommendations.recommendations
       return {all: recs, loading: false}
     case 'UPVOTE':

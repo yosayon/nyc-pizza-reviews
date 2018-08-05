@@ -4,27 +4,26 @@ export default function userReducer(state = {
   id: '',
   name: '',
   email: '',
-  imageUrl: ''
+  imageUrl: '',
+  commented_by_user: [],
+  voted_by_user: []
   },
   action){
 
   switch(action.type){
     case 'LOADING':
       return {...state, loading: true}
-    case 'SET_STATUS':
-      console.log(action.userData)
-      return {...state, loading: false, loginStatus: action.status}
     case 'ADD_USER':
       console.log("Adding user...", action.user.user.name)
       const user = action.user.user
-      return {...state, loading: false, loginStatus: 'connected', id: user.id, name: user.name, email: user.email, imageUrl: user.image_url}
+      return {...state, loading: false, loginStatus: 'connected', id: user.id, name: user.name, email: user.email, imageUrl: user.image_url, ...state}
     case 'USER_FOUND':
-      console.log("Found user...")
+      console.log("Found user...", action.user)
       const data = action.user
-      return { ...state, loading: false, loginStatus: 'connected', id: data.id, name: data.name, email: data.email, imageUrl: data.image_url}
+      return { ...state, loading: false, loginStatus: 'connected', id: data.user.id, name: data.user.name, email: data.user.email, imageUrl: data.user.image_url, commented_by_user: data.commented_by_user, voted_by_user: data.voted_by_user}
     case 'LOG_OUT':
       console.log("logging out...")
-      return {...state, loginStatus: 'disconnected', id: '', name: '', email: '', imageUrl: ''}
+      return {...state, loading: false, loginStatus: 'disconnected', id: '', name: '', email: '', imageUrl: '', commented_by_user: [], voted_by_user: []}
     default:
       return state
     }
