@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export const Recommendation = ({recommendation, onVote, match}) => {
   const handleOnClick = (e) => {
     onVote(recommendation.id)
-  }
+    }
   return(
     <div className='recommendation-container'>
       <div className='vote-button'>
@@ -16,9 +16,9 @@ export const Recommendation = ({recommendation, onVote, match}) => {
       <div className='rec-content'>{recommendation.address}</div>
       <div className='rec-content'>{recommendation.city}</div>
       <div className='rec-content'>{recommendation.state}</div>
-      <div className='rec-content'>Votes:{recommendation.votes}</div>
+      <div className='rec-content'>Votes:{recommendation.votes.length}</div>
       <div className='rec-comment'>
-        <Link to={`/recommendations/${recommendation.id}`}>view comments - {recommendation.comments === null ? 0 : recommendation.comments.length}</Link>
+        <Link to={`/recommendations/${recommendation.id}`}>view comments - {recommendation.comments.length === 0 ? 0 : recommendation.comments.length}</Link>
       </div>
     </div>
   )
