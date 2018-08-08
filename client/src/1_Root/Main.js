@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchRestaurants, updateSortOption, fetchRecommendations, createRecommendation, upVote, find_or_create_user, logout} from '../Util/actions/index'
+import { fetchRestaurants, updateSortOption, fetchRecommendations, createRecommendation, upVote, find_or_create_user, logout, createComment} from '../Util/actions/index'
 import { getSortedRestaurants } from '../Util/selectors/index'
 import Homepage from '../2_Homepage/Homepage'
 import { ReviewsPage } from '../4_Reviews/ReviewsPage'
 import RecommendationsPage from '../5_Recommendations/RecommendationsPage'
-import { RecommendationShowPage } from '../5_Recommendations/RecommendationShowPage'
+import RecommendationShowPage from '../5_Recommendations/RecommendationShowPage'
 import RequireAuth from '../6_Login/RequireAuth'
 import Login from '../6_Login/Login'
 
@@ -123,6 +123,8 @@ class Main extends Component{
               recommendations={this.state.recommendations}
               upvote={this.props.upvote}
               onVote={this.onVote}
+              currentUser={this.props.currentUser}
+              createComment={this.props.createComment}
               />
             }
           />
@@ -147,7 +149,8 @@ const mapDispatchToProps = dispatch => {
     createRecommendation,
     upVote,
     find_or_create_user,
-    logout
+    logout,
+    createComment
   }, dispatch);
 };
 
@@ -159,7 +162,8 @@ const mapStateToProps = state => {
     recommendations: state.recommendations.all,
     loginStatus: state.users.loginStatus,
     name: state.users.name,
-    userId: state.users.id
+    userId: state.users.id,
+    currentUser: state.users
   })
 }
 

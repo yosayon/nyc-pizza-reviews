@@ -18,7 +18,7 @@ export const Recommendation = ({recommendation, onVote, match}) => {
       <div className='rec-content'>{recommendation.state}</div>
       <div className='rec-content'>Votes:{recommendation.votes.length}</div>
       <div className='rec-comment'>
-        <Link to={`/recommendations/${recommendation.id}`}>view comments - {recommendation.comments.length === 0 ? 0 : recommendation.comments.length}</Link>
+        <Link to={`/recommendations/${recommendation.id}`}>view comments - {recommendation.number_of_comments}</Link>
       </div>
     </div>
   )

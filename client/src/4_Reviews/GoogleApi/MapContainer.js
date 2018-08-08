@@ -1,7 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 import {GoogleApiWrapper, Map, Marker, InfoWindow} from 'google-maps-react'
-import {GoogleApiKey} from '../googleApi'
+import {GoogleApiKey} from './googleApi'
 import redMarker from '../images/redMarker.png'
 import blueMarker from '../images/blueMarker.png'
 import yellowMarker from '../images/yellowMarker.png'
@@ -71,7 +71,6 @@ export class MapContainer extends React.Component{
           containerStyle={{
             height: '60vh',
             width: '60%',
-            'marginTop': '30px',
             'marginLeft': '19%',
             'marginRight': 'auto',
             'alignSelf': 'center',

@@ -86,23 +86,24 @@ body {
 
  .reviews-page-container {
    display: flex;
-   flex-flow: column;
-   margin-top: 5%;
+   flex-flow: row;
+   /* margin-top: 5%; */
    margin-bottom: 5%;
    width: auto;
    justify-content: center;
  }
 
  .map-container {
+  display: flex;
   margin-top: 25px;
-  margin-left: 10%;
+  /* margin-left: 5%; */
  }
 
  .search-container {
    position: absolute;
    display: flex;
    height: 30px;
-   top: 500px;
+   top: 550px;
    margin-left: 0;
    width: 40%;
  }
@@ -122,6 +123,7 @@ body {
 /* each restaurant on components/restaurant.js */
 
 .restaurant-list-container {
+  display: flex;
   font-size: 13px;
   margin-top: 500px;
   align-self: center;
@@ -176,6 +178,10 @@ td a:hover {
   border: 1px solid gray;
 }
 
+/* RecommendationsPage ******************************************* */
+
+/* vote form */
+
 .vote-page-container {
   height: 1000px;
 }
@@ -218,6 +224,8 @@ td a:hover {
 .form-group.has-error{
   border: 1px solid red;
 }
+
+/* list of recommendations */
 
 .recommendations-list-container{
   display: flex;
@@ -273,7 +281,50 @@ td a:hover {
   height: 50px;
 }
 
+/* RecommendationsShowPage ******************************************* */
+
+/* CommentsPage */
+
+.comments-list-container{
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  width: 65%;
+  height: 180px;
+  border: 1px solid white;
+}
+
+.comment-container {
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+}
+
+.current-user-name{
+  color: white;
+  text-shadow: 1px 1px gray;
+  font-weight: bolder;
+  margin-left: 15px;
+  margin-right: 15px;
+  align-self: flex-end;
+}
+
+.comment-input-box-container{
+  width: 500px;
+  align-self: flex-end;
+}
+
+.comment-input-box{
+  width: 80%;
+  align-self: flex-end;
+}
+
+.comment-content{
+  color: white;
+}
+
 /* ******************************************* */
+
 /* Homepage */
 .app-container{
   width: 100%;

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
   resources :restaurants, :only => [:index]
   resources :recommendations, :only => [:show, :index] do
-    resources :comments, :only => [:index]
+    resources :comments, :only => [:index, :create]
   end
   resources :users, :only => [:create, :show, :destroy]
   end
