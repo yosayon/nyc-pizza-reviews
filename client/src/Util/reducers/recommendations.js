@@ -20,6 +20,13 @@ export default function recommendationReducer(state = {
       let recommendations = state.all.filter(rec => rec.id !== action.recommendation.id)
       let all = recommendation.concat(recommendations)
       return {all: all, loading: false}
+    case 'ADD_COMMENT':
+      let index = state.all.findIndex(rec => rec.id === Number(action.id))
+      let recommendationNew = state.all.find(rec => rec.id === Number(action.id))
+      recommendationNew.comments.push(action.comment)
+      let recommendationsList = state.all.slice(0, index).concat(recommendationNew).concat(state.all.slice(index+1))
+      console.log(recommendationsList)
+      return {all: recommendationsList, loading: false}
     default:
       return state;
   }

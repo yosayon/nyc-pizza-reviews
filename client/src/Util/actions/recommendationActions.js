@@ -57,6 +57,39 @@ export function upVote(id, userId){
  }
 }
 
-export function fetchComments(id){
-  
+export function createComment(id, user, comment){
+  return function(dispatch){
+    dispatch({ type: 'LOADING'})
+      return fetch(`/api/recommendations/${id}/comments`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json','Accept': 'application/json'},
+        body: JSON.stringify({user_id: user.id, recommendation_id: id, comment: comment})
+      })
+      .then(response => {
+        if(response.ok){
+          return response
+        }else {
+          console.log(response)
+          throw Error('Cannot create comment')
+        }
+      })
+      .then(resp => resp.json())
+      .then(comment => {
+        console.log(comment)
+        dispatch({ type: 'ADD_COMMENT', comment: comment, id: id})
+      })
+      .catch(err => console.warn(err))
+  }
 }
+
+// export function fetchComments(id){
+//   console.log("Fetching comments...")
+//   return function(dispatch){
+//     dispatch({ type: 'LOADING'})
+//     return fetch(`/api/recommendations/${id}/comments`)
+//     .then(response => response.json())
+//     .then(comments => {
+//       dispatch({ type: 'ADD_COMMENTS', comments: comments, id: id})
+//     })
+//   }
+// }

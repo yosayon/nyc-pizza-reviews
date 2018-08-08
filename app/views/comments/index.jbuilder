@@ -1,3 +1,5 @@
 json.comments @comments do |comment|
-  json.(comment, :id, :recommendation_id, :comment, :user)
+  json.user comment.user.name
+  json.comment comment.comment
+  json.created comment.created_at
 end
