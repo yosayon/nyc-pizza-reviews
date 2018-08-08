@@ -33,4 +33,4 @@
 /.DS_Store
 /db/data
 
-/client/src/googleApi.js
+/client/src/4_Reviews/GoogleApi/googleApi.js
