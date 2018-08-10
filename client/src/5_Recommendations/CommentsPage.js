@@ -1,12 +1,17 @@
 import React from 'react'
 import Comment from './Comment'
+import ScrollArea from 'react-scrollbar'
 
 const CommentsPage = ({ currentUser, recommendation, commentText, onChangeComment, onClickComment }) => {
   const displayComments = recommendation.comments && recommendation.comments.length > 0  ? recommendation.comments.map(comment => <Comment key={comment.id} comment={comment.comment}  user={comment.user}/>) : [" "]
 
   return(
     <div className='comments-list-container'>
-      {displayComments}
+      <ScrollArea>
+        <div>
+        {displayComments}
+        </div>
+      </ScrollArea>
       <div className='comment-container'>
         <div className='current-user-name'>{currentUser.name}:</div>
         <div className='comment-input-box-container'>
