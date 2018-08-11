@@ -18,3 +18,9 @@ $ rake db:migrate
 $ cd client
 $ npm install
 $ rake start
+
+# BLOG
+https://yosayonnyc.wordpress.com/2018/08/11/nyc-pizza-reviews-one-bite-everybody-knows-the-rules-dave-portnoy-el-presidente-of-barstool-sports/
+
+# Video Walkthrough
+https://www.youtube.com/edit?o=U&ar=1&video_id=LUlya542nbY
