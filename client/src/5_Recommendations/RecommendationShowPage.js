@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Recommendation } from './Recommendation'
+import Recommendation from './Recommendation'
 import CommentsPage  from './CommentsPage'
 
 
